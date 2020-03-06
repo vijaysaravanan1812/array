@@ -1,4 +1,4 @@
-//find index of mininum averagerage of subarray
+//find index of mininum average of subarray
 using namespace std;
 
 #include<iostream>
