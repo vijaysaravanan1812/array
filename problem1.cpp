@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 //array rotation
 using namespace std;
 
+=======
+using namespace std;
+//Array rotation
+>>>>>>> af505663584f54e8058d99b98a79a1cb8fc4d976
 #include<iostream>
 int main()
 {
@@ -46,4 +51,8 @@ int main()
     cout<<"\n";
     return 0;
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> af505663584f54e8058d99b98a79a1cb8fc4d976

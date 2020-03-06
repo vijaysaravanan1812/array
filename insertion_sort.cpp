@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+//insertion sort
+>>>>>>> af505663584f54e8058d99b98a79a1cb8fc4d976
 using namespace std;
 
 #include<iostream>
@@ -30,4 +34,8 @@ int main()
        cout<<arr[i]<<"\t";
     }
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> af505663584f54e8058d99b98a79a1cb8fc4d976
