@@ -1,7 +1,6 @@
 using namespace std;
-
+//linked list
 #include<iostream>
-
 struct node
 {
     int data;
@@ -38,7 +37,7 @@ int main()
 
     
     third ->data = 38;
-    third ->next = first;
+    third ->next = NULL;
     
     printlist(first);
     return 0;
