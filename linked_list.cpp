@@ -7,18 +7,7 @@ struct node
     int data;
     node *next;
 };
-void insert(node *n)
-{
-    node *nextnode;
-    nextnode = new node();
-    cin>>nextnode -> data;
-    nextnode ->next = NULL;
-    while ( n ->next != NULL)
-    {
-        n = n ->next;
-    }
-    n ->next =  nextnode ;
-}
+
 void printlist(node *n)
 {
     while ( n != NULL)
@@ -30,32 +19,34 @@ void printlist(node *n)
     
 }
 
-int main()
+void insert(node *n)
 {
     int count = 0;
+    while (count != 10)
+    {
+        node *nextnode;  
+        nextnode = new node();
+        cin>>nextnode -> data;
+        nextnode ->next = n;
+        n=nextnode;
+        printlist(nextnode);
+        
+        count++;
+    }
+
+
+}
+
+int main()
+{
+    
     node *first = NULL;
     first = new node();
     cin>>first ->data;
     first ->next = NULL;
-
-    while (count != 10)
-    {
-        
-        cout<<"Do you wamt quit (Yes-1/No-0)";
-        cin>>s;
-        if (s== 1)
-            break;
-        else
-        {
-           insert(first);
-            printlist(first);
-            count ++;
-        }
-    }
-    cout<<"Final list :\n";
-    printlist(first);
-
-    return 0;
+     
+    insert(first);
+  
  
 
 }
