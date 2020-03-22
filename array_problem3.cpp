@@ -1,6 +1,6 @@
 using namespace std;
 
-//array rotation in cyclicaly
+//array rotation in cyclicaly right
 #include<iostream>
 void rotate(int arr[],int size)
 {
