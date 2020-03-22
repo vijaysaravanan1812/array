@@ -10,6 +10,11 @@ int search(int arr[], int l, int r,int key)
     {
         return mid;
     }
+    else
+    {
+        return -1;
+    }
+    
     if(arr[l] <= arr[mid])
     {
         if (key >= arr[l] && key <= arr[mid])
@@ -29,7 +34,7 @@ int search(int arr[], int l, int r,int key)
         }
         else
         {
-            search(arr,l,mid -1,key)
+            search(arr,l,mid -1,key);
         }
         
         
@@ -48,10 +53,12 @@ int main()
     {
         cout<<arr[i]<<" ";
     }
+    cout<<"Enter the key"<<"\n";
+    cin>>key;
     
     r = search(arr,0,size -1,key);
-    if (i != -1) 
-    cout << "Index: " << i << endl; 
+    if (r != -1) 
+    cout << "Index: " << r<<"\n"; 
     else
-    cout << "Key not found"; 
+    cout << "Key not found"<<"\n";
 }
