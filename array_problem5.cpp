@@ -1,5 +1,5 @@
 using namespace std;
-
+//Given a sorted and rotated array, find if there is a pair with a given sum
 #include<iostream>
 int find_pair(int arr[],int size,int sum)
 {
