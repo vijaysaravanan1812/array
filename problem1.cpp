@@ -1,53 +1,45 @@
-
 using namespace std;
-//Array rotation
+
+//array rotation in cyclicaly left
 #include<iostream>
+void rotate(int arr[],int size)
+{
+    int i,temp;
+    temp = arr[size -1];
+    for ( i = size -1; i > 0; i--)
+    {
+        arr[i] = arr[i-1];
+    }arr[0] = temp;
+
+
+    
+}
+
 int main()
 {
-    int arr[]={2,3,5,8,4,1};
-    int size= sizeof(arr)/sizeof(arr[0]);
-    int r,k;
-    cout<<"Enter No of rotation"<<"\n";
-    cin>>k;
-    if (k>size)
+    int size,r,count = 0;
+    int arr[] = {1,2,3,4,5,6,7};
+    size = sizeof(arr)/sizeof(arr[0]);
+    for (int i = 0; i < size; i++)
     {
-        r=k%6;
+        cout<<arr[i]<<" ";
     }
-    r=k;
+    cout<<"No of times to rotate the array"<<"\t";
+    cin>>r;
+    cout<<"\n";
+
+    cout<<"Rotated array"<<"\n";
+    while (count != r )
+    {
+        rotate(arr,size);
+        count++;
+    }
     
-    cout<<"The array is:"<<"\t";
     for (int i = 0; i < size; i++)
     {
-        cout<<arr[i]<<"\t";
+        cout<<arr[i]<<" ";
     }
-    cout<<"\n";
 
-    for (int i = 0; i < r; i++)
-    {
- 
-        int temp;
-        temp=arr[size-1];
-        int j=(size-1);
-        while (j!=0)
-        {
-            arr[j]=arr[j-1];
-            j--;                
-        }
-        arr[j]=temp;
-
- 
-    }
-    cout<<"\n";
-    cout<<"After rotation:"<<"\t";
-    for (int i = 0; i < size; i++)
-    {
-        cout<<arr[i]<<"\t";
-    }
-    cout<<"\n";
+    
     return 0;
-    
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> af505663584f54e8058d99b98a79a1cb8fc4d976

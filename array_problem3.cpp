@@ -5,11 +5,11 @@ using namespace std;
 void rotate(int arr[],int size)
 {
     int i,temp;
-    temp = arr[size -1];
-    for ( i = size -1; i > 0; i--)
+    temp = arr[0];
+    for ( i = 0; i <  size -1; i++)
     {
-        arr[i] = arr[i-1];
-    }arr[0] = temp;
+        arr[i] = arr[i+1];
+    }arr[size - 1] = temp;
 
 
     
