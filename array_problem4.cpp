@@ -1,6 +1,6 @@
 using namespace std;
 
-//searching elements in sorted array and rotated array
+//searching elements in sorted array and rotated array by binary search
 #include<iostream>
 int search(int arr[], int l, int r,int key)
 {
