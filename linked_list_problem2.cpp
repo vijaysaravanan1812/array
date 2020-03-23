@@ -1,6 +1,6 @@
 using namespace std;
 
-//Deleting node from linked list
+//Deleting node from linked list problem 2
 #include<iostream>
 struct node
 {
