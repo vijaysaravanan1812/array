@@ -109,6 +109,7 @@ int main()
 
     cout<<"Given linked list"<<" ";
     printlist(first);
+ 
     cout<<"Enter your position";
     cin>>pos;
     if (pos == 1)
@@ -134,17 +135,7 @@ int main()
         delete_node_at_mid(first,pos);cout<<"\n";
         printlist(first);
     }
-    
 
- 
-
-
- 
-
-
- 
-
- 
     return 0;
 
 }
