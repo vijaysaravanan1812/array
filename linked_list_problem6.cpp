@@ -1,5 +1,6 @@
 //Detect the loop in linked list 
 //Floyd's cycle
+//To calculate length of loop
 using namespace std;
 #include<iostream>
 
