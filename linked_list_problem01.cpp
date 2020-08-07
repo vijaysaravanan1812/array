@@ -1,5 +1,6 @@
-using namespace std;
 //linked list problem 1) inserting elements
+using namespace std;
+
 #include<iostream>
 int s;
 struct node
@@ -26,7 +27,7 @@ void printlist(node *temp)
     while ( temp != NULL)
     {
         cout<<temp ->data<<" ";
-        temp = temp ->next;
+        temp = temp ->next; // temp = second,third,NUll
     }
     cout<<"\n";
 }
@@ -44,7 +45,21 @@ void insert_end(node *temp)
         temp = temp ->next;
     }
     temp ->next =  nextnode ;
-    printlist(temp);
+}
+
+//This function to insert element at first
+node* insert_first(node* temp )
+{
+    node *newnode = NULL;
+    newnode = new node();
+
+    cout<<"Your new element"<<"\t";
+    cin>>newnode ->data;
+    newnode ->next = NULL;
+    newnode ->next = temp;
+    temp = newnode;
+    return temp;
+    
 }
 
 //This function is to insert element at any position
@@ -55,8 +70,10 @@ void insert(node *temp ,int position)
     newnode = new node();
     cout<<"your new element"<<"\t"; 
     cin>>newnode -> data;
+     
     while (count != position - 1)
     {
+
         temp = temp ->next;
         count++;
     } 
@@ -78,7 +95,7 @@ int main()
     first = new node();
     second = new node();
     third = new node();
-    fourth = new node();
+    fourth =  new node();
 
     cin>>first ->data;
     first ->next = second;
@@ -100,24 +117,21 @@ int main()
     
     if (position == 1)
     {
-        // inserting element at first position
-        node *newnode;  
-        newnode = new node();
-        cout<<"your new element"<<"\t";
-        cin>>newnode -> data;
-        newnode ->next = first;
-        first  = newnode;
+        node* temp;temp = new node();
+        temp = first;
+        first = insert_first(temp);
         printlist(first);
     }
     else
     {
         if (position > length(first))
         {
-            cout<<"Invalid position";
+            cout<<"Invalid position"<<"\n";
         }
         if (position == (length(first) + 1))
         {
             insert_end(first);
+            printlist(first);
         }   
         if (position <= length(first))
         {
