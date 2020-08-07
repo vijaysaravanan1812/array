@@ -1,4 +1,4 @@
-//reverse the array
+//7) reverse the array
 using namespace std;
 
 #include<iostream>
@@ -22,12 +22,13 @@ int main()
     size = sizeof(arr)/sizeof(arr[0]);
     int r =size -1;
     int l = 0;
-    cout<<"given array"<<"\n";
+    cout<<"Given array"<<"\t";
     for (int i = 0; i < size; i++)
     {
         cout<<arr[i]<<" ";
     }cout<<"\n";
     reverse( arr , l , r);
+    cout<<"Reversed array is :"<<"\t";
     for (int i = 0; i < size; i++)
     {
         cout<<arr[i]<<" ";

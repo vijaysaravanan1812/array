@@ -1,54 +1,40 @@
+//3) searching elements in sorted array and rotated array by binary search
 using namespace std;
-
-//searching elements in sorted array and rotated array by binary search
 
 #include<iostream>
 int search(int arr[], int l, int r,int key)
 {
     int mid;
     mid = (l+r)/2;
-    if (key == arr[mid])
+    if (arr[mid] == key)
     {
         return mid;
     }
-    else
+    if (l>r)
     {
         return -1;
     }
-    
     if(arr[l] <= arr[mid])
     {
-        if (key >= arr[l] && key <= arr[mid])
-        {
-            search(arr,l,mid -1,key);
-        }  
-        else
-        {
+        if (key >= arr[l] && key <= arr[mid])  //array = {arr[l], ........key....., ., arr[mid], .................., arr[r] }
+            search(arr,l,mid -1,key); 
+        else 
             search(arr,mid +1,r,key);
-        }
     }
-    else
+    else 
     {
         if (key >= arr[mid] && key <= arr[r])
-        {
             search(arr,mid +1,r,key);
-        }
         else
-        {
             search(arr,l,mid -1,key);
-        }
-        
-        
     }
-    
-
-
 }
+    
 
 int main()
 {
-    int arr[] = {7,8,1,2,4,5,6};
-    int key,size,r;
+    int arr[] = {10,20,1,2,4,5,6,7};
+    int key,size;
     size = sizeof(arr)/sizeof(arr[0]);
     for (int i = 0; i < size; i++)
     {
@@ -56,10 +42,15 @@ int main()
     }
     cout<<"Enter the key"<<"\n";
     cin>>key;
-    
-    r = search(arr,0,size -1,key);
-    if (r != -1) 
-    cout << "Index: " << r<<"\n"; 
+
+    if (search(arr,0,size -1,key) != -1) 
+    {
+        cout << "Index: " << search(arr,0,size -1,key)<<"\n";
+    }
+   
     else
-    cout << "Key not found"<<"\n";
+    {
+         cout << "Key not found"<<"\n";
+    }
+    return 0;
 }
