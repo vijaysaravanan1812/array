@@ -1,4 +1,4 @@
-//8) Rearrange the array such that elements at even positions are greater than all elements before it 
+-//8) Rearrange the array such that elements at even positions are greater than all elements before it 
 using namespace std;
 
 #include<iostream>
@@ -7,15 +7,15 @@ int sort(int size,int arr[])
     int temp,j;
     for (int i = 1; i < size; i++)
     {
-        temp=arr[i]; //i = 1,2,3,4,5,6,7 
+        temp = arr[i]; //i = 1,2,3,4,5,6,7 
    
-        j=i-1; 
+        j = i - 1; 
         
   
-        while (j>=0 && arr[j]>temp)
+        while (j >= 0 && arr[j] > temp)
         {
-            arr[j+1]=arr[j];
-            j=j-1;
+            arr[j+1] = arr[j];
+            j = j - 1;
         }
         arr[j+1]=temp;
     }
@@ -39,7 +39,7 @@ void rearrange(int arr[],int size)
 
     //filling odd position
     int j = oddpos -1;
-    for (int i = 0; i < size; i=i+2)
+    for (int i = 0; i < size; i = i + 2)
     {
         arr[i] = temp[j];
         j--;
@@ -47,7 +47,7 @@ void rearrange(int arr[],int size)
 
     //filling even position 
     j = oddpos;
-    for (int  i = 1; i < size; i=i+2)
+    for (int  i = 1; i < size; i = i + 2)
     {
         arr[i] = temp[j];
         j++;

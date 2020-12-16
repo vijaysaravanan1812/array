@@ -4,20 +4,22 @@ using namespace std;
 #include<iostream>
 int find_pair(int arr[],int size,int sum)
 {
-    int i =0;           
-    int l = i+1%size;   l=1
-    int r = 0;          r=0
-    while (l != r)
+    int i = 0;           
+    int l = i + 1 % size;  // l=1
+    int r = 0;         // r=0
+    for (int i = 0; i < size - 1; i++)
     {
-        if (arr[l] + arr[r] == sum)
+        for (int j = i + 1; j < size; j++)
         {
-            return 1;
+            if (arr[i] + arr[j] == sum)
+            {
+                return 1;
+            }
+            
         }
-        if (arr[l] + arr[r] < sum)
-            l=l+1%size; //here l = 2,3,4,5,6,
-        else
-            r=size-1+r%size;  //here r = 6,5,4,3,2,1,0
+        
     }
+    
     return -1;
     
 
@@ -25,8 +27,8 @@ int find_pair(int arr[],int size,int sum)
 
 int main()
 {
-    int arr[] = {10,9,1,2,3,4,5,7,8};
-    int size,sum=19;
+    int arr[] = {10,9,1,2,3};
+    int size,sum = 5;
     size = sizeof(arr)/sizeof(arr[0]);
     int res = find_pair(arr,size,sum);
     for(int i = 0; i < size; i++)

@@ -7,14 +7,14 @@
     R1 - R0 = a+b+c-3d
     =>R1-R0 = a+b+c+d-d-3d
     =>R1-R0 = arrsum - 4d => arrsum - nd 
-    =>Rj - Rj-1 + arrsum - n*arr[n-j] This is a relation applied in this problem
+    =>Rj = Rj-1 + arrsum - n*arr[n-j] This is a relation applied in this problem
 */
 using namespace std;
 
 #include<iostream>
 int max(int arr[], int size)
 {
-    int sum_of_array =0,current_value =0,maxvalue = 0;
+    int sum_of_array = 0,current_value = 0,maxvalue = 0;
 
     //To calculate sum of array at Ro and i*arr[i]
     for (int i = 0; i < size; i++)

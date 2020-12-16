@@ -14,7 +14,8 @@ int search(int arr[], int l, int r,int key)
     {
         return -1;
     }
-    if(arr[l] <= arr[mid])
+
+     if(arr[l] <= arr[mid])
     {
         if (key >= arr[l] && key <= arr[mid])  //array = {arr[l], ........key....., ., arr[mid], .................., arr[r] }
             search(arr,l,mid -1,key); 
@@ -33,7 +34,7 @@ int search(int arr[], int l, int r,int key)
 
 int main()
 {
-    int arr[] = {10,20,1,2,4,5,6,7};
+    int arr[] = {55,100,1,2,4,5,6,7,10,20};
     int key,size;
     size = sizeof(arr)/sizeof(arr[0]);
     for (int i = 0; i < size; i++)

@@ -4,8 +4,8 @@ using namespace std;
 #include<iostream>
 int average(int arr[],int n,int s)
 {
-    int res_index=0;
-    int current_sum = 0;
+    int res_index   =   0;
+    int current_sum =   0;
     int min_sum;
     
     /*
@@ -30,8 +30,8 @@ int average(int arr[],int n,int s)
         current_sum += arr[i] - arr[i-s];
         if (current_sum < min_sum)
         {
-            min_sum = current_sum;
-            res_index=(i-s+1);
+            min_sum     = current_sum;
+            res_index   =   (i-s+1);
         }
         
     }
