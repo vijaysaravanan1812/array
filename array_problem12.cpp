@@ -1,5 +1,5 @@
 /*
- * There are two sorted arrays nums1 and nums2 of size m and n respectively.
+ * 12) There are two sorted arrays nums1 and nums2 of size m and n respectively.
  * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
  *
  * Solution
@@ -16,45 +16,94 @@
 
 using namespace std;
 
-double get_median(int arr1[],int arr2[])
+
+double merge(int temp1[],int temp2[],int s1,int s2)
 {
-    int size1 = sizeof(arr1)/sizeof(arr1[0]);
-    int size2 = sizeof(arr2)/sizeof(arr2[0]);
+    //let s1 and s2 be a size of new array
+    int arr[s1 + s2];
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    //merge the two arrays
+    while (i < s1 && j < s2)
+    {
+        if (temp1[i] <= temp2[j])
+        {
+            arr[k] = temp1[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = temp2[j];
+            j++;
+        }
+        k++;
+    }
+
+    //if any element is temp arrays then copied to original array
+    while (i < s1 )
+    {
+        arr[k] = temp1[i];
+        i++;
+        k++;
+    }
+    while (j < s2 )
+    {
+        arr[k] = temp2[j];
+        j++;
+        k++;
+    }
+    int size = s1 + s2;
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+
+    if ((size)%2 == 0)
+    {
+        return (double) (arr[size/2] + arr[size/2 - 1])/2;
+    }
+    else{
+        return (double)arr[size/2];
+    }
+    
+}
+
+
+double get_median(int arr1[],int arr2[],int size1,int size2)
+{
     if(size1 > size2)
     {
-        return get_median(arr2,arr1);
+        return get_median(arr2,arr1,size2,size1);
     }
     int x = size1,y = size2;
 
     int low = 0;int high = x;
     while(low <= high)
     {
-        for (int i = low; i <= high; i++)
-        {
-            printf("%d\t",arr1[i]);
-        }
-        printf("\n");
-        
-
         int partitionx = low + (high - low)/2;
-        int partitiony = (x + y + 1)/2 - partitionx;
+        int partitiony = (x + y)/2 - partitionx;
 
-        int max_left_x = (partitionx == 0)? -12410: arr1[partitionx - 1];
-        int min_right_x = (partitionx == x)? 10120: arr1[partitionx];
+        int max_left_x = (partitionx == 0)? -1241012121: arr1[partitionx - 1];
+        int min_right_x = (partitionx == x)? 1012012121: arr1[partitionx];
         
 
-        int max_left_y = (partitiony == 0)? -1025: arr2[partitiony - 1];
-        int min_right_y = (partitiony == y)? 1020: arr2[partitiony];
+        int max_left_y = (partitiony == 0)? -1025101010: arr2[partitiony - 1];
+        int min_right_y = (partitiony == y)? 1020101010: arr2[partitiony];
 
         if (max_left_x <= min_right_y && max_left_y <= min_right_x )
         {
             if ((x + y)%2 == 0)
             {
-               return ((float)max(max_left_x,max_left_x) + min(min_right_x,min_right_y))/2;
+                printf("max x %d min x %d\nmax y %d min y %d\n",max_left_x,min_right_x,max_left_y,min_right_y);
+               return ((double)max(max_left_x,max_left_y) + min(min_right_x,min_right_y))/2;
             }
             else
             {
-                return (float)max(max_left_x , max_left_y);
+                printf("max x %d min x %d\nmax y %d min y %d\n",max_left_x,min_right_x,max_left_y,min_right_y);
+                return (double)min(min_right_x , min_right_y);
             }
         }
         else if (max_left_x > min_right_y)
@@ -65,8 +114,6 @@ double get_median(int arr1[],int arr2[])
         {
             low = partitionx + 1;
         }
-        
-        
     }
     
 
@@ -74,10 +121,28 @@ double get_median(int arr1[],int arr2[])
 
 int main()
 {
-    //1,3,3,4,5,6,8,10,28,33,90
-    int arr1[] = {3,6,10,28,33};
-    int arr2[] = {1,3,4,5,8};
+    system("clear");
+    printf("Given array \n");
+    int arr1[] = {12,16,19,67};
+    int arr2[] = {13,17,19,20};
 
-    printf("median %lf",get_median(arr1,arr2));
+
+    int size1 = sizeof(arr1)/sizeof(arr1[0]);
+    int size2 = sizeof(arr2)/sizeof(arr2[0]);
+    for (int i = 0; i < size1; i++)
+    {
+        printf("%d ",arr1[i]);
+    }
+    printf("\n");
+    for (int j = 0; j < size2; j++)
+    {
+        printf("%d ",arr2[j]);
+    }
+    printf("\n");
+    printf("----------------------------\n");
+    printf("O(log n)\nmedian %lf\n",get_median(arr1,arr2,size1,size2));
+    
+    printf("----------------------------\n");
+    printf("O(n)\nmedian %lf\n",merge(arr1,arr2,size1,size2));
     return 0;
 }
